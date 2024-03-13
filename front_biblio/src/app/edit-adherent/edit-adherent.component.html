@@ -1,0 +1,28 @@
+<form>
+    <div class="mb-3">
+        <label for="Nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="InputNom" value={{adherent?.nom}}>
+    </div>
+
+    <div class="mb-3">
+        <label for="Prenom" class="form-label">Prénom</label>
+        <input type="text" class="form-control" id="Prenom" value={{adherent?.prenom}}>
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Adresse Email</label>
+        <input type="text" class="form-control" id="email" value={{adherent?.email}}>
+    </div>
+
+    <div class="mb-3">
+        <label for="DateNaissance" class="form-label">Date de naissance</label>
+        <input type="date" class="form-control" id="DateNaissance" value={{adherent?.nom}}>
+    </div>
+
+    <div class="mb-3">
+        <label for="Password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="Password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Valider</button>
+</form>

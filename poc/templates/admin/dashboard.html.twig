@@ -1,0 +1,70 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}
+	<div class="content-header">
+		<h1>Tableau de bord</h1>
+	</div>
+{% endblock %}
+{#{% block head_stylesheets %}#}
+{#	{{ parent() }}#}
+{#{% endblock %}#}
+
+{% block head_javascript %}
+	{{ parent() }}
+	<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" integrity="sha512-CQBWl4fJHWbryGE+Pc7UAxWMUMNMWzWxF4SQo9CgkJIN1kx6djDQZjh3Y8SZ1d+6I+1zze6Z7kHXO7q3UyZAWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% block main %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card bg-primary text-white">
+					<div class="card-body">
+						<h5 class="card-title">Livres</h5>
+						<p class="card-text">Nombre total de livres: {{ totalLivres }}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card bg-success text-white">
+					<div class="card-body">
+						<h5 class="card-title">Adhérents</h5>
+						<p class="card-text">Nombre total d'adhérents: {{ totalAdherents }}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card bg-info text-white">
+					<div class="card-body">
+						<h5 class="card-title">Emprunts en cours</h5>
+						<p class="card-text">Nombre total d'emprunts en cours: {{ totalEmprunts }}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12 mt-4">
+				<h2>Derniers Emprunts</h2>
+				<ul>
+					
+					{% for emprunt in dernierEmprunts %}
+                        <div class="col-md-4">
+                            <div class="card bg-danger text-white">
+                                <div class="card-body">
+                                    <li>{{ emprunt.livre.titre }} - {{ emprunt.adherent.nom }}  {{ emprunt.adherent.prenom }} - {{ emprunt.dateEmprunt|date('d/m/Y') }}</li>
+                                </div>
+                            </div>
+                        </div><br>						
+                        <!-- Ajoutez d'autres détails de l'emprunt ici -->
+					{% endfor %}
+					<!-- Ajoutez d'autres éléments de liste ici -->
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

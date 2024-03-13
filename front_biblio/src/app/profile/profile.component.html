@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem;">
+    <img src={{adherent?.photo}} class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{adherent?.prenom}} {{adherent?.nom}} (ID : {{adherent?.id}})</h5>
+        <h6 class="card-title">Email : {{adherent?.email}}</h6>
+        <h6 class="card-title">Numéro de tel : {{adherent?.email}}</h6>
+        <h6 class="card-title">Adresse Postal : {{adherent?.adressePostale}}</h6>
+        <h6 class="card-title">naît le : {{adherent?.dateNaiss | date: 'dd/MM/yyyy'}}</h6>
+        <div class="d-grid gap-2 d-md-block">
+            <a class="btn btn-primary" routerLink="/profile/modification" style="margin-right: 10px;"
+                role="button">Modififer</a>
+            <a class="btn btn-primary" routerLink="/profile/reservations" style="margin-right: 10px;"
+                role="button">Réservations</a>
+        </div>
+    </div>
+</div>

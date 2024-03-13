@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">POC Bibliothèque</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Accueil</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/livres">Livres</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Catégorie
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li *ngFor="let categorie of categories; let i = index">
+              <a class="dropdown-item" [routerLink]="['/livres/categorie', categorie.nom]">{{categorie.nom}}</a>
+              <hr class="dropdown-divider" *ngIf="i !== categories.length - 1">
+            </li>
+          </ul>
+        </li>
+
+        <ng-template [ngIf]="!authService.currentAuthUserValue.isLogged()" [ngIfElse]="loggedInTemplate">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['login']">Login</a>
+          </li>
+        </ng-template>
+        <ng-template #loggedInTemplate>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+          </li>
+        </ng-template>
+
+      </ul>
+
+
+      <form class="form-group" style="display: flex; gap: 2%" action="#" method="POST" (ngSubmit)="onSearch()">
+        <input type="text" class="form-control" placeholder="Rechercher des livres..." list="list-livres"
+          id="input-datalist" [(ngModel)]="selectedLivres" name="search">
+        <datalist id="list-livres">
+          <option *ngFor="let livre of livres">{{ livre.titre }}</option>
+        </datalist>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+      </form>
+
+    </div>
+  </div>
+</nav>
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>

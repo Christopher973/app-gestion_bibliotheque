@@ -1,0 +1,40 @@
+== ============================== ==
+== MariaDB-10.8.3-winx64 (Stable) ==
+== ============================== ==
+
+Ceci est un serveur de développement utilisable en local
+sans installation dans un environnement Windows 64 bits.
+
+Mis au point pour faciliter les tests sur une base de données MySQL/Mariadb
+dans le cadre des formations animées par Fabrice PELLEAU.
+
+/!\ ============================= /!\
+/!\ NE PAS UTILISER EN PRODUCTION /!\
+/!\ ============================= /!\
+
+
+Pour lancer le serveur :
+
+  start-server.bat (laisser la fenetre ouverte ... arreter le serveur avec Ctrl+C)
+
+
+Pour lancer un client en ligne de commande :
+
+  mysql-client.bat
+
+
+Pour acceder au serveur :
+ host   : localhost
+ port   : 3306
+ user   : root
+ passwd : root
+
+
+
+Pour utiliser Mariadb en Java/JDBC :
+
+  Le driver est : mariadb-java-client-2.7.3.jar
+
+  La classe de chargement du Driver est : org.mariadb.jdbc.Driver 
+
+  L'url de connexion est : jdbc:mariadb://localhost:3306/nomBase

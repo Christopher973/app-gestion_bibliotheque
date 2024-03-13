@@ -1,0 +1,13 @@
+<h2>Connexion</h2>
+
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="model.email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Mot de Passe:</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="model.password" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Connexion</button>
+</form>
